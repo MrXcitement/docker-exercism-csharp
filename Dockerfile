@@ -16,6 +16,11 @@ RUN apt-get install -y apt-transport-https \
     && apt-get update \
     && apt-get install -y dotnet-sdk-2.2
 
+# Clean up
+RUN apt-get autoremove -y \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /root/exercism
 
 ENTRYPOINT ["bash"]
