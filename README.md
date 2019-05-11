@@ -1,5 +1,5 @@
 # Docker Exercism 'c#' Track Image
-An Exercism 'c#' track image to be used to work through the 'c#' track exercises.
+An Exercism 'c#' track docker image to be used to work through the 'c#' track exercises.
 
 ## Overview
 This project uses a Dockerfile and Makefile to manage the creation and
