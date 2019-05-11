@@ -1,7 +1,7 @@
 FROM mrbarker/exercism-base:0.1.1
 LABEL maintainer="mike@thebarkers.com" \
       description="An exercism 'csharp' track image." \
-      version="0.1.0"
+      version="0.1.1"
 
 RUN apt-get update \
     && apt-get install -y pgp \
@@ -16,7 +16,7 @@ RUN apt-get install -y apt-transport-https \
     && apt-get update \
     && apt-get install -y dotnet-sdk-2.2
 
-WORKDIR /workspace
+WORKDIR /root/exercism
 
 ENTRYPOINT ["bash"]
 CMD ["--login"]
