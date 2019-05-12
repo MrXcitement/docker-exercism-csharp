@@ -17,7 +17,7 @@ docker-login:
 	DOCKER_ID_USER="$(username)" docker login
 
 docker-run: docker-build
-	docker run --rm -it -v $(CURDIR):/root/exercism $(username)/$(imagename):$(tag)
+	docker run --rm -it $(username)/$(imagename):$(tag)
 
 clean:
 	rm -f docker-build docker-push
