@@ -2,22 +2,22 @@ username ?= mrbarker
 imagename ?= exercism-csharp
 tag ?= 0.1.1
 
-.PHONY: clean docker-login docker-run
-all: docker-build
+.PHONY: clean login run
+all: build
 
-docker-build: Dockerfile
+build: Dockerfile
 	docker build -t $(username)/$(imagename):$(tag) .	
 	touch $@
 
-docker-push: docker-build
+push: build
 	docker push $(username)/$(imagename):$(tag)
 	touch $@
 
-docker-login:
+login:
 	DOCKER_ID_USER="$(username)" docker login
 
-docker-run: docker-build
+run: build
 	docker run --rm -it $(username)/$(imagename):$(tag)
 
 clean:
-	rm -f docker-build docker-push
+	rm -f build push
